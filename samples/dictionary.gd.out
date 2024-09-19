@@ -1,0 +1,17 @@
+Script [1:0..8:0]
+ ├─ CompoundStatement [1:0..4:0]
+ │   └─ DictionaryExpressionNode [1:0..3:1]
+ │       ├─ { [1:0..1:1]: "{"
+ │       ├─ DictionaryEntry [2:1..3:0]
+ │       │   ├─ LiteralExpressionNode [2:1..2:17]
+ │       │   │   └─ String [2:1..2:17]: "\"hello\": \"world\""
+ │       │   └─ ⚠ 3:0
+ │       └─ } [3:0..3:1]: "}"
+ └─ CompoundStatement [5:0..8:0]
+     └─ DictionaryExpressionNode [5:0..7:1]
+         ├─ { [5:0..5:1]: "{"
+         ├─ DictionaryEntry [6:1..7:0]
+         │   ├─ LiteralExpressionNode [6:1..6:18]
+         │   │   └─ String [6:1..6:18]: "\"hello\" = \"world\""
+         │   └─ ⚠ 7:0
+         └─ } [7:0..7:1]: "}"

@@ -1,0 +1,76 @@
+Script [1:0..18:0]
+ ├─ CompoundStatement [1:0..2:1]
+ │   ├─ FunctionNode [1:0..2:1]
+ │   │   ├─ func [1:0..1:4]: "func"
+ │   │   ├─ ⚠ [1:5..1:6]: "_"
+ │   │   ├─ Identifier [1:6..1:11]: "ready"
+ │   │   ├─ CallParams [1:11..1:13]
+ │   │   │   ├─ ( [1:11..1:12]: "("
+ │   │   │   └─ ) [1:12..1:13]: ")"
+ │   │   └─ Body [1:13..2:1]
+ │   │       ├─ : [1:13..1:14]: ":"
+ │   │       └─ ⚠ 2:1
+ │   └─ ⚠ 2:1
+ ├─ CompoundStatement [2:1..5:1]
+ │   ├─ IfNode [2:1..5:1]
+ │   │   └─ IfClause [2:1..5:1]
+ │   │       ├─ if [2:1..2:3]: "if"
+ │   │       ├─ LiteralExpressionNode [2:4..2:8]
+ │   │       │   └─ True [2:4..2:8]: "true"
+ │   │       └─ Body [2:8..5:1]
+ │   │           ├─ : [2:8..2:9]: ":"
+ │   │           ├─ CallExpressionNode [3:2..3:16]
+ │   │           │   ├─ Identifier [3:2..3:7]: "print"
+ │   │           │   └─ CallParams [3:7..3:16]
+ │   │           │       ├─ ( [3:7..3:8]: "("
+ │   │           │       ├─ LiteralExpressionNode [3:8..3:15]
+ │   │           │       │   └─ String [3:8..3:15]: "\"yeah!\""
+ │   │           │       └─ ) [3:15..3:16]: ")"
+ │   │           └─ ⚠ 5:1
+ │   └─ ⚠ 5:1
+ ├─ CompoundStatement [5:1..8:2]
+ │   ├─ IfNode [5:1..8:2]
+ │   │   └─ IfClause [5:1..8:2]
+ │   │       ├─ if [5:1..5:3]: "if"
+ │   │       ├─ LiteralExpressionNode [5:4..5:9]
+ │   │       │   └─ False [5:4..5:9]: "false"
+ │   │       └─ Body [5:9..8:2]
+ │   │           ├─ : [5:9..5:10]: ":"
+ │   │           ├─ CallExpressionNode [6:2..6:13]
+ │   │           │   ├─ Identifier [6:2..6:7]: "print"
+ │   │           │   └─ CallParams [6:7..6:13]
+ │   │           │       ├─ ( [6:7..6:8]: "("
+ │   │           │       ├─ LiteralExpressionNode [6:8..6:12]
+ │   │           │       │   └─ String [6:8..6:12]: "\"yo\""
+ │   │           │       └─ ) [6:12..6:13]: ")"
+ │   │           └─ ⚠ 8:2
+ │   └─ ⚠ 8:2
+ ├─ CompoundStatement [8:2..13:2]
+ │   ├─ CallExpressionNode [8:2..8:16]
+ │   │   ├─ Identifier [8:2..8:7]: "print"
+ │   │   └─ CallParams [8:7..8:16]
+ │   │       ├─ ( [8:7..8:8]: "("
+ │   │       ├─ LiteralExpressionNode [8:8..8:15]
+ │   │       │   └─ String [8:8..8:15]: "\"yo yo\""
+ │   │       └─ ) [8:15..8:16]: ")"
+ │   ├─ Comment [8:17..8:26]: "# Comment"
+ │   └─ ⚠ 13:2
+ ├─ CompoundStatement [13:2..17:1]
+ │   ├─ CallExpressionNode [13:2..13:22]
+ │   │   ├─ Identifier [13:2..13:7]: "print"
+ │   │   └─ CallParams [13:7..13:22]
+ │   │       ├─ ( [13:7..13:8]: "("
+ │   │       ├─ LiteralExpressionNode [13:8..13:21]
+ │   │       │   └─ String [13:8..13:21]: "\"yo yo yo yo\""
+ │   │       └─ ) [13:21..13:22]: ")"
+ │   ├─ Comment [14:2..14:11]: "# Comment"
+ │   ├─ Comment [16:1..16:10]: "# Comment"
+ │   └─ ⚠ 17:1
+ └─ CompoundStatement [17:1..17:14]
+     └─ CallExpressionNode [17:1..17:14]
+         ├─ Identifier [17:1..17:6]: "print"
+         └─ CallParams [17:6..17:14]
+             ├─ ( [17:6..17:7]: "("
+             ├─ LiteralExpressionNode [17:7..17:13]
+             │   └─ String [17:7..17:13]: "\"hehe\""
+             └─ ) [17:13..17:14]: ")"

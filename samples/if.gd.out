@@ -1,0 +1,24 @@
+Script [1:0..5:0]
+ ├─ CompoundStatement [1:0..3:0]
+ │   ├─ IfNode [1:0..3:0]
+ │   │   └─ IfClause [1:0..2:0]
+ │   │       ├─ if [1:0..1:2]: "if"
+ │   │       ├─ LiteralExpressionNode [1:3..1:7]
+ │   │       │   └─ True [1:3..1:7]: "true"
+ │   │       └─ Body [1:7..2:0]
+ │   │           ├─ : [1:7..1:8]: ":"
+ │   │           └─ LiteralExpressionNode [1:9..1:14]
+ │   │               └─ False [1:9..1:14]: "false"
+ │   └─ ⚠ 3:0
+ └─ CompoundStatement [3:0..5:0]
+     └─ IfNode [3:0..5:0]
+         └─ IfClause [3:0..5:0]
+             ├─ if [3:0..3:2]: "if"
+             ├─ LiteralExpressionNode [3:3..3:7]
+             │   └─ True [3:3..3:7]: "true"
+             └─ Body [3:7..5:0]
+                 ├─ : [3:7..3:8]: ":"
+                 └─ SuiteNode [4:0..5:0]
+                     └─ CompoundStatement [4:1..5:0]
+                         └─ LiteralExpressionNode [4:1..4:6]
+                             └─ False [4:1..4:6]: "false"

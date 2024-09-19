@@ -1,0 +1,3 @@
+Script [1:0..3:0]
+ ├─ Comment [1:0..1:19]: "# This is a comment"
+ └─ Comment [2:0..2:25]: "# This is another comment"

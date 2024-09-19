@@ -1,0 +1,29 @@
+Script [1:0..6:0]
+ ├─ SimpleStatement [1:0..2:0]
+ │   └─ ExtendsStatement [1:0..1:12]
+ │       ├─ extends [1:0..1:7]: "extends"
+ │       └─ Identifier [1:8..1:12]: "Node"
+ ├─ SimpleStatement [2:0..3:0]
+ │   └─ ClassNameStatement [2:0..2:16]
+ │       ├─ class_name [2:0..2:10]: "class_name"
+ │       └─ Identifier [2:11..2:16]: "Hello"
+ └─ CompoundStatement [4:0..5:22]
+     └─ FunctionNode [4:0..5:22]
+         ├─ func [4:0..4:4]: "func"
+         ├─ ⚠ [4:5..4:6]: "_"
+         ├─ Identifier [4:6..4:11]: "ready"
+         ├─ CallParams [4:11..4:13]
+         │   ├─ ( [4:11..4:12]: "("
+         │   └─ ) [4:12..4:13]: ")"
+         ├─ FunctionReturnType [4:14..4:21]
+         │   └─ Type [4:17..4:21]
+         │       └─ Identifier [4:17..4:21]: "void"
+         └─ Body [4:21..5:22]
+             ├─ : [4:21..4:22]: ":"
+             └─ CallExpressionNode [5:1..5:22]
+                 ├─ Identifier [5:1..5:6]: "print"
+                 └─ CallParams [5:6..5:22]
+                     ├─ ( [5:6..5:7]: "("
+                     ├─ LiteralExpressionNode [5:7..5:21]
+                     │   └─ String [5:7..5:21]: "\"hello, world\""
+                     └─ ) [5:21..5:22]: ")"

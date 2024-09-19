@@ -1,0 +1,30 @@
+Script [1:0..6:0]
+ ├─ CompoundStatement [1:0..2:0]
+ │   └─ VariableNode [1:0..1:22]
+ │       ├─ AnnotationNode [1:0..1:8]
+ │       │   ├─ @ [1:0..1:1]: "@"
+ │       │   └─ Identifier [1:1..1:8]: "onready"
+ │       ├─ var [1:9..1:12]: "var"
+ │       └─ Identifier [1:13..1:22]: "hello_you"
+ ├─ CompoundStatement [2:0..3:0]
+ │   └─ VariableNode [2:0..2:24]
+ │       ├─ var [2:0..2:3]: "var"
+ │       ├─ Identifier [2:4..2:17]: "hello_you_too"
+ │       └─ TypeCast [2:17..2:24]
+ │           ├─ : [2:17..2:18]: ":"
+ │           └─ Type [2:19..2:24]
+ │               └─ Identifier [2:19..2:24]: "Array"
+ ├─ CompoundStatement [4:0..5:0]
+ │   └─ VariableNode [4:0..4:25]
+ │       ├─ AnnotationNode [4:0..4:8]
+ │       │   ├─ @ [4:0..4:1]: "@"
+ │       │   └─ Identifier [4:1..4:8]: "onready"
+ │       ├─ var [4:9..4:12]: "var"
+ │       └─ Identifier [4:13..4:25]: "on_ready_var"
+ └─ CompoundStatement [5:0..6:0]
+     └─ VariableNode [5:0..5:24]
+         ├─ AnnotationNode [5:0..5:7]
+         │   ├─ @ [5:0..5:1]: "@"
+         │   └─ Identifier [5:1..5:7]: "export"
+         ├─ var [5:8..5:11]: "var"
+         └─ Identifier [5:12..5:24]: "exported_var"

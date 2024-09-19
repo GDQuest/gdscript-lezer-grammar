@@ -1,0 +1,11 @@
+Script [1:0..3:0]
+ ├─ CompoundStatement [1:0..2:0]
+ │   └─ UnaryOperatorNode [1:0..1:5]
+ │       ├─ ArithOp [1:0..1:1]: "!"
+ │       └─ LiteralExpressionNode [1:1..1:5]
+ │           └─ True [1:1..1:5]: "true"
+ └─ CompoundStatement [2:0..3:0]
+     └─ UnaryOperatorNode [2:0..2:8]
+         ├─ NotOp [2:0..2:3]: "not"
+         └─ LiteralExpressionNode [2:4..2:8]
+             └─ True [2:4..2:8]: "true"

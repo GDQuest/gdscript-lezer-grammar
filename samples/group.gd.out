@@ -1,0 +1,18 @@
+Script [1:0..2:0]
+ └─ CompoundStatement [1:0..2:0]
+     └─ BinaryOperatorExpressionNode [1:0..1:17]
+         ├─ GroupedExpressionNode [1:0..1:7]
+         │   ├─ ( [1:0..1:1]: "("
+         │   ├─ BinaryOperatorExpressionNode [1:1..1:6]
+         │   │   ├─ LiteralExpressionNode [1:1..1:2]: "1"
+         │   │   ├─ ArithOp [1:3..1:4]: "+"
+         │   │   └─ LiteralExpressionNode [1:5..1:6]: "2"
+         │   └─ ) [1:6..1:7]: ")"
+         ├─ ArithOp [1:8..1:9]: "*"
+         └─ GroupedExpressionNode [1:10..1:17]
+             ├─ ( [1:10..1:11]: "("
+             ├─ BinaryOperatorExpressionNode [1:11..1:16]
+             │   ├─ LiteralExpressionNode [1:11..1:12]: "3"
+             │   ├─ ArithOp [1:13..1:14]: "+"
+             │   └─ LiteralExpressionNode [1:15..1:16]: "4"
+             └─ ) [1:16..1:17]: ")"

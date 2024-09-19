@@ -1,0 +1,33 @@
+Script [1:0..9:0]
+ ├─ SimpleStatement [1:0..2:0]
+ │   └─ ReturnNode [1:0..1:12]
+ │       ├─ return [1:0..1:6]: "return"
+ │       └─ IdentifierExpressionNode [1:7..1:12]
+ │           └─ Identifier [1:7..1:12]: "hello"
+ ├─ SimpleStatement [3:0..4:0]
+ │   └─ ReturnNode [3:0..3:13]
+ │       ├─ return [3:0..3:6]: "return"
+ │       └─ LiteralExpressionNode [3:7..3:13]
+ │           └─ String [3:7..3:13]: "\"help\""
+ ├─ SimpleStatement [5:0..6:0]
+ │   └─ ReturnNode [5:0..5:16]
+ │       ├─ return [5:0..5:6]: "return"
+ │       └─ BinaryOperatorExpressionNode [5:7..5:16]
+ │           ├─ LiteralExpressionNode [5:7..5:8]: "1"
+ │           ├─ ArithOp [5:9..5:10]: "+"
+ │           └─ BinaryOperatorExpressionNode [5:11..5:16]
+ │               ├─ LiteralExpressionNode [5:11..5:12]: "2"
+ │               ├─ ArithOp [5:13..5:14]: "*"
+ │               └─ LiteralExpressionNode [5:15..5:16]: "3"
+ └─ CompoundStatement [7:0..8:15]
+     └─ FunctionNode [7:0..8:15]
+         ├─ func [7:0..7:4]: "func"
+         ├─ Identifier [7:5..7:12]: "my_func"
+         ├─ CallParams [7:12..7:14]
+         │   ├─ ( [7:12..7:13]: "("
+         │   └─ ) [7:13..7:14]: ")"
+         └─ Body [7:14..8:15]
+             ├─ : [7:14..7:15]: ":"
+             ├─ ⚠ [8:1..8:7]
+             │   └─ return [8:1..8:7]: "return"
+             └─ LiteralExpressionNode [8:8..8:15]: "123_456"

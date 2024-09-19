@@ -1,0 +1,8 @@
+Script [1:0..2:0]
+ └─ CompoundStatement [1:0..2:0]
+     └─ TypeTestExpressionNode [1:0..1:19]
+         ├─ IdentifierExpressionNode [1:0..1:11]
+         │   └─ Identifier [1:0..1:11]: "my_variable"
+         ├─ is [1:12..1:14]: "is"
+         └─ ClassName [1:15..1:19]
+             └─ Identifier [1:15..1:19]: "Node"

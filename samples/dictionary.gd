@@ -1,0 +1,7 @@
+{
+	"hello": "world"
+}
+
+{
+	"hello" = "world"
+}

@@ -1,0 +1,38 @@
+Script [1:0..4:0]
+ ├─ CompoundStatement [1:0..2:12]
+ │   ├─ FunctionNode [1:0..2:12]
+ │   │   ├─ func [1:0..1:4]: "func"
+ │   │   ├─ ⚠ [1:5..1:6]: "_"
+ │   │   ├─ Identifier [1:6..1:11]: "ready"
+ │   │   ├─ CallParams [1:11..1:13]
+ │   │   │   ├─ ( [1:11..1:12]: "("
+ │   │   │   └─ ) [1:12..1:13]: ")"
+ │   │   ├─ FunctionReturnType [1:14..1:21]
+ │   │   │   └─ Type [1:17..1:21]
+ │   │   │       └─ Identifier [1:17..1:21]: "void"
+ │   │   └─ Body [1:21..2:12]
+ │   │       ├─ : [1:21..1:22]: ":"
+ │   │       ├─ AssignmentExpressionNode [2:1..2:12]
+ │   │       │   ├─ VariableNode [2:1..2:12]
+ │   │       │   │   ├─ var [2:1..2:4]: "var"
+ │   │       │   │   ├─ Identifier [2:5..2:9]: "test"
+ │   │       │   │   └─ ⚠ [2:10..2:11]: "="
+ │   │       │   └─ ⚠ 2:12
+ │   │       └─ ⚠ 2:12
+ │   └─ ⚠ 2:12
+ └─ CompoundStatement [2:12..3:15]
+     └─ FunctionNode [2:12..3:15]
+         ├─ func [2:12..2:16]: "func"
+         ├─ ⚠ 2:17
+         ├─ CallParams [2:17..2:19]
+         │   ├─ ( [2:17..2:18]: "("
+         │   └─ ) [2:18..2:19]: ")"
+         └─ Body [2:19..3:15]
+             ├─ : [2:19..2:20]: ":"
+             └─ CallExpressionNode [3:2..3:15]
+                 ├─ Identifier [3:2..3:7]: "print"
+                 └─ CallParams [3:7..3:15]
+                     ├─ ( [3:7..3:8]: "("
+                     ├─ LiteralExpressionNode [3:8..3:14]
+                     │   └─ String [3:8..3:14]: "\"help\""
+                     └─ ) [3:14..3:15]: ")"

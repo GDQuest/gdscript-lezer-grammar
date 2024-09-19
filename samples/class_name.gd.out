@@ -1,0 +1,5 @@
+Script [1:0..2:0]
+ └─ SimpleStatement [1:0..2:0]
+     └─ ClassNameStatement [1:0..1:16]
+         ├─ class_name [1:0..1:10]: "class_name"
+         └─ Identifier [1:11..1:16]: "Hello"

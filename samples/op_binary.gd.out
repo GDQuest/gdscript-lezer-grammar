@@ -1,0 +1,124 @@
+Script [1:0..45:0]
+ ├─ Comment [1:0..1:21]: "# Order of operations"
+ ├─ CompoundStatement [2:0..3:0]
+ │   └─ BinaryOperatorExpressionNode [2:0..2:13]
+ │       ├─ BinaryOperatorExpressionNode [2:0..2:9]
+ │       │   ├─ LiteralExpressionNode [2:0..2:1]: "1"
+ │       │   ├─ ArithOp [2:2..2:3]: "+"
+ │       │   └─ BinaryOperatorExpressionNode [2:4..2:9]
+ │       │       ├─ LiteralExpressionNode [2:4..2:5]: "2"
+ │       │       ├─ ArithOp [2:6..2:7]: "*"
+ │       │       └─ LiteralExpressionNode [2:8..2:9]: "3"
+ │       ├─ ArithOp [2:10..2:11]: "+"
+ │       └─ LiteralExpressionNode [2:12..2:13]: "4"
+ ├─ Comment [4:0..4:7]: "# Power"
+ ├─ CompoundStatement [5:0..6:0]
+ │   └─ BinaryOperatorExpressionNode [5:0..5:6]
+ │       ├─ LiteralExpressionNode [5:0..5:1]: "1"
+ │       ├─ ArithOp [5:2..5:4]: "**"
+ │       └─ LiteralExpressionNode [5:5..5:6]: "2"
+ ├─ Comment [7:0..7:8]: "# Factor"
+ ├─ CompoundStatement [8:0..8:4]
+ │   ├─ LiteralExpressionNode [8:0..8:1]: "1"
+ │   └─ ⚠ [8:2..8:3]: "/"
+ ├─ CompoundStatement [8:4..9:0]
+ │   └─ LiteralExpressionNode [8:4..8:5]: "2"
+ ├─ CompoundStatement [9:0..10:0]
+ │   └─ BinaryOperatorExpressionNode [9:0..9:5]
+ │       ├─ LiteralExpressionNode [9:0..9:1]: "1"
+ │       ├─ ArithOp [9:2..9:3]: "%"
+ │       └─ LiteralExpressionNode [9:4..9:5]: "2"
+ ├─ CompoundStatement [10:0..11:0]
+ │   └─ BinaryOperatorExpressionNode [10:0..10:5]
+ │       ├─ LiteralExpressionNode [10:0..10:1]: "1"
+ │       ├─ ArithOp [10:2..10:3]: "*"
+ │       └─ LiteralExpressionNode [10:4..10:5]: "2"
+ ├─ Comment [12:0..12:21]: "# AdditionSubtraction"
+ ├─ CompoundStatement [13:0..14:0]
+ │   └─ BinaryOperatorExpressionNode [13:0..13:5]
+ │       ├─ LiteralExpressionNode [13:0..13:1]: "1"
+ │       ├─ ArithOp [13:2..13:3]: "+"
+ │       └─ LiteralExpressionNode [13:4..13:5]: "2"
+ ├─ CompoundStatement [14:0..15:0]
+ │   └─ BinaryOperatorExpressionNode [14:0..14:5]
+ │       ├─ LiteralExpressionNode [14:0..14:1]: "1"
+ │       ├─ ArithOp [14:2..14:3]: "-"
+ │       └─ LiteralExpressionNode [14:4..14:5]: "2"
+ ├─ Comment [16:0..16:10]: "# Bitshift"
+ ├─ CompoundStatement [17:0..18:0]
+ │   └─ BinaryOperatorExpressionNode [17:0..17:6]
+ │       ├─ LiteralExpressionNode [17:0..17:1]: "1"
+ │       ├─ BitOp [17:2..17:4]: "<<"
+ │       └─ LiteralExpressionNode [17:5..17:6]: "2"
+ ├─ CompoundStatement [18:0..19:0]
+ │   └─ BinaryOperatorExpressionNode [18:0..18:6]
+ │       ├─ LiteralExpressionNode [18:0..18:1]: "1"
+ │       ├─ BitOp [18:2..18:4]: ">>"
+ │       └─ LiteralExpressionNode [18:5..18:6]: "2"
+ ├─ Comment [20:0..20:12]: "# Comparison"
+ ├─ CompoundStatement [21:0..22:0]
+ │   └─ BinaryOperatorExpressionNode [21:0..21:6]
+ │       ├─ LiteralExpressionNode [21:0..21:1]: "1"
+ │       ├─ CompareOp [21:2..21:4]: "=="
+ │       └─ LiteralExpressionNode [21:5..21:6]: "2"
+ ├─ CompoundStatement [22:0..23:0]
+ │   └─ BinaryOperatorExpressionNode [22:0..22:6]
+ │       ├─ LiteralExpressionNode [22:0..22:1]: "1"
+ │       ├─ CompareOp [22:2..22:4]: "!="
+ │       └─ LiteralExpressionNode [22:5..22:6]: "2"
+ ├─ CompoundStatement [23:0..24:0]
+ │   └─ BinaryOperatorExpressionNode [23:0..23:5]
+ │       ├─ LiteralExpressionNode [23:0..23:1]: "1"
+ │       ├─ CompareOp [23:2..23:3]: "<"
+ │       └─ LiteralExpressionNode [23:4..23:5]: "2"
+ ├─ CompoundStatement [24:0..25:0]
+ │   └─ BinaryOperatorExpressionNode [24:0..24:6]
+ │       ├─ LiteralExpressionNode [24:0..24:1]: "1"
+ │       ├─ CompareOp [24:2..24:4]: "<="
+ │       └─ LiteralExpressionNode [24:5..24:6]: "2"
+ ├─ CompoundStatement [25:0..26:0]
+ │   └─ BinaryOperatorExpressionNode [25:0..25:5]
+ │       ├─ LiteralExpressionNode [25:0..25:1]: "1"
+ │       ├─ CompareOp [25:2..25:3]: ">"
+ │       └─ LiteralExpressionNode [25:4..25:5]: "2"
+ ├─ CompoundStatement [26:0..27:0]
+ │   └─ BinaryOperatorExpressionNode [26:0..26:6]
+ │       ├─ LiteralExpressionNode [26:0..26:1]: "1"
+ │       ├─ CompareOp [26:2..26:4]: ">="
+ │       └─ LiteralExpressionNode [26:5..26:6]: "2"
+ ├─ Comment [28:0..28:8]: "# Bit or"
+ ├─ CompoundStatement [29:0..30:0]
+ │   └─ BinaryOperatorExpressionNode [29:0..29:5]
+ │       ├─ LiteralExpressionNode [29:0..29:1]: "1"
+ │       ├─ BitOp [29:2..29:3]: "|"
+ │       └─ LiteralExpressionNode [29:4..29:5]: "2"
+ ├─ Comment [31:0..31:9]: "# Bit xor"
+ ├─ CompoundStatement [32:0..33:0]
+ │   └─ BinaryOperatorExpressionNode [32:0..32:5]
+ │       ├─ LiteralExpressionNode [32:0..32:1]: "1"
+ │       ├─ BitOp [32:2..32:3]: "^"
+ │       └─ LiteralExpressionNode [32:4..32:5]: "2"
+ ├─ Comment [34:0..34:9]: "# Bit and"
+ ├─ CompoundStatement [35:0..36:0]
+ │   └─ BinaryOperatorExpressionNode [35:0..35:5]
+ │       ├─ LiteralExpressionNode [35:0..35:1]: "1"
+ │       ├─ BitOp [35:2..35:3]: "&"
+ │       └─ LiteralExpressionNode [35:4..35:5]: "2"
+ ├─ Comment [37:0..37:11]: "# Logic and"
+ ├─ CompoundStatement [38:0..39:0]
+ │   └─ BinaryOperatorExpressionNode [38:0..38:6]
+ │       ├─ LiteralExpressionNode [38:0..38:1]: "1"
+ │       ├─ LogicOp [38:2..38:4]: "&&"
+ │       └─ LiteralExpressionNode [38:5..38:6]: "2"
+ ├─ Comment [40:0..40:10]: "# Logic or"
+ ├─ CompoundStatement [41:0..42:0]
+ │   └─ BinaryOperatorExpressionNode [41:0..41:6]
+ │       ├─ LiteralExpressionNode [41:0..41:1]: "1"
+ │       ├─ LogicOp [41:2..41:4]: "||"
+ │       └─ LiteralExpressionNode [41:5..41:6]: "2"
+ ├─ Comment [43:0..43:4]: "# in"
+ └─ CompoundStatement [44:0..45:0]
+     └─ BinaryOperatorExpressionNode [44:0..44:6]
+         ├─ LiteralExpressionNode [44:0..44:1]: "1"
+         ├─ in [44:2..44:4]: "in"
+         └─ LiteralExpressionNode [44:5..44:6]: "2"

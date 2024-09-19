@@ -1,0 +1,8 @@
+Script [1:0..2:0]
+ └─ CompoundStatement [1:0..2:0]
+     └─ CastExpressionNode [1:0..1:19]
+         ├─ IdentifierExpressionNode [1:0..1:11]
+         │   └─ Identifier [1:0..1:11]: "my_variable"
+         ├─ as [1:12..1:14]: "as"
+         └─ Type [1:15..1:19]
+             └─ Identifier [1:15..1:19]: "Node"

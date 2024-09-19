@@ -1,0 +1,4 @@
+Script [1:0..2:0]
+ └─ SimpleStatement [1:0..2:0]
+     └─ PassStatement [1:0..1:4]
+         └─ pass [1:0..1:4]: "pass"

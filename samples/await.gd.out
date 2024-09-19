@@ -1,0 +1,6 @@
+Script [1:0..2:0]
+ └─ CompoundStatement [1:0..2:0]
+     └─ AwaitExpressionNode [1:0..1:11]
+         ├─ await [1:0..1:5]: "await"
+         └─ IdentifierExpressionNode [1:6..1:11]
+             └─ Identifier [1:6..1:11]: "hello"

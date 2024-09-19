@@ -1,0 +1,41 @@
+Script [1:0..5:0]
+ ├─ CompoundStatement [1:0..4:0]
+ │   ├─ ForNode [1:0..3:0]
+ │   │   ├─ for [1:0..1:3]: "for"
+ │   │   ├─ Identifier [1:4..1:5]: "x"
+ │   │   ├─ in [1:6..1:8]: "in"
+ │   │   ├─ IdentifierExpressionNode [1:9..1:17]
+ │   │   │   └─ Identifier [1:9..1:17]: "my_array"
+ │   │   └─ Body [1:17..3:0]
+ │   │       ├─ : [1:17..1:18]: ":"
+ │   │       └─ SuiteNode [2:0..3:0]
+ │   │           └─ CompoundStatement [2:1..3:0]
+ │   │               └─ CallExpressionNode [2:1..2:9]
+ │   │                   ├─ Identifier [2:1..2:6]: "print"
+ │   │                   └─ CallParams [2:6..2:9]
+ │   │                       ├─ ( [2:6..2:7]: "("
+ │   │                       ├─ IdentifierExpressionNode [2:7..2:8]
+ │   │                       │   └─ Identifier [2:7..2:8]: "x"
+ │   │                       └─ ) [2:8..2:9]: ")"
+ │   └─ ⚠ 4:0
+ ├─ CompoundStatement [4:0..4:24]
+ │   ├─ ForNode [4:0..4:24]
+ │   │   ├─ for [4:0..4:3]: "for"
+ │   │   ├─ Identifier [4:4..4:5]: "x"
+ │   │   ├─ in [4:6..4:8]: "in"
+ │   │   ├─ AssignmentExpressionNode [4:9..4:24]
+ │   │   │   ├─ ParameterNode [4:9..4:24]
+ │   │   │   │   ├─ Identifier [4:9..4:17]: "my_array"
+ │   │   │   │   └─ TypeCast [4:17..4:24]
+ │   │   │   │       ├─ : [4:17..4:18]: ":"
+ │   │   │   │       └─ Type [4:19..4:24]
+ │   │   │   │           └─ Identifier [4:19..4:24]: "print"
+ │   │   │   └─ ⚠ 4:24
+ │   │   └─ ⚠ 4:24
+ │   └─ ⚠ 4:24
+ └─ CompoundStatement [4:24..5:0]
+     └─ GroupedExpressionNode [4:24..4:27]
+         ├─ ( [4:24..4:25]: "("
+         ├─ IdentifierExpressionNode [4:25..4:26]
+         │   └─ Identifier [4:25..4:26]: "x"
+         └─ ) [4:26..4:27]: ")"

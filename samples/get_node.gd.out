@@ -1,0 +1,15 @@
+Script [1:0..6:0]
+ ├─ CompoundStatement [1:0..2:0]
+ │   └─ GetNodeExpressionNode [1:0..1:7]
+ │       └─ Identifier [1:1..1:7]: "MyNode"
+ ├─ CompoundStatement [2:0..3:0]
+ │   └─ GetNodeExpressionNode [2:0..2:7]
+ │       └─ Identifier [2:1..2:7]: "MyNode"
+ ├─ CompoundStatement [4:0..5:0]
+ │   └─ GetNodeExpressionNode [4:0..4:13]
+ │       ├─ Identifier [4:1..4:7]: "MyNode"
+ │       └─ Identifier [4:8..4:13]: "Child"
+ └─ CompoundStatement [5:0..6:0]
+     └─ GetNodeExpressionNode [5:0..5:13]
+         ├─ Identifier [5:1..5:7]: "MyNode"
+         └─ Identifier [5:8..5:13]: "Child"

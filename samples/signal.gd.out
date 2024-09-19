@@ -1,0 +1,5 @@
+Script [1:0..2:0]
+ └─ SimpleStatement [1:0..2:0]
+     └─ SignalStatement [1:0..1:12]
+         ├─ signal [1:0..1:6]: "signal"
+         └─ Identifier [1:7..1:12]: "hello"

@@ -1,0 +1,11 @@
+Script [1:0..3:0]
+ └─ CompoundStatement [1:0..3:0]
+     └─ ClassNode [1:0..3:0]
+         ├─ class [1:0..1:5]: "class"
+         ├─ Identifier [1:6..1:11]: "Hello"
+         └─ Body [1:11..3:0]
+             ├─ : [1:11..1:12]: ":"
+             └─ SuiteNode [2:0..3:0]
+                 └─ SimpleStatement [2:1..3:0]
+                     └─ PassStatement [2:1..2:5]
+                         └─ pass [2:1..2:5]: "pass"

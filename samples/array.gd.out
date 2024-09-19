@@ -1,0 +1,47 @@
+Script [1:0..18:0]
+ ├─ CompoundStatement [1:0..2:0]
+ │   └─ ArrayExpressionNode [1:0..1:2]
+ │       ├─ [ [1:0..1:1]: "["
+ │       └─ ] [1:1..1:2]: "]"
+ ├─ CompoundStatement [3:0..4:0]
+ │   └─ ArrayExpressionNode [3:0..3:3]
+ │       ├─ [ [3:0..3:1]: "["
+ │       ├─ LiteralExpressionNode [3:1..3:2]: "1"
+ │       └─ ] [3:2..3:3]: "]"
+ ├─ CompoundStatement [5:0..6:0]
+ │   └─ ArrayExpressionNode [5:0..5:5]
+ │       ├─ [ [5:0..5:1]: "["
+ │       ├─ LiteralExpressionNode [5:1..5:2]: "1"
+ │       ├─ , [5:2..5:3]: ","
+ │       ├─ LiteralExpressionNode [5:3..5:4]: "2"
+ │       └─ ] [5:4..5:5]: "]"
+ ├─ CompoundStatement [7:0..11:0]
+ │   └─ ArrayExpressionNode [7:0..10:1]
+ │       ├─ [ [7:0..7:1]: "["
+ │       ├─ LiteralExpressionNode [8:1..8:2]: "1"
+ │       ├─ , [8:2..8:3]: ","
+ │       ├─ LiteralExpressionNode [9:1..9:2]: "2"
+ │       └─ ] [10:0..10:1]: "]"
+ ├─ CompoundStatement [12:0..16:0]
+ │   └─ ArrayExpressionNode [12:0..15:3]
+ │       ├─ [ [12:0..12:1]: "["
+ │       ├─ LiteralExpressionNode [12:1..12:2]: "1"
+ │       ├─ , [12:2..12:3]: ","
+ │       ├─ LiteralExpressionNode [13:0..13:1]: "2"
+ │       ├─ , [13:1..13:2]: ","
+ │       ├─ LiteralExpressionNode [14:0..14:1]: "3"
+ │       ├─ , [15:0..15:1]: ","
+ │       ├─ LiteralExpressionNode [15:1..15:2]: "4"
+ │       └─ ] [15:2..15:3]: "]"
+ └─ CompoundStatement [17:0..18:0]
+     └─ ArrayExpressionNode [17:0..17:20]
+         ├─ SubscriptExpressionNode [17:0..17:11]
+         │   ├─ VariableName [17:0..17:5]
+         │   │   └─ Identifier [17:0..17:5]: "hello"
+         │   ├─ . [17:5..17:6]: "."
+         │   └─ VariableName [17:6..17:11]
+         │       └─ Identifier [17:6..17:11]: "world"
+         ├─ [ [17:11..17:12]: "["
+         ├─ LiteralExpressionNode [17:12..17:19]
+         │   └─ String [17:12..17:19]: "\"hello\""
+         └─ ] [17:19..17:20]: "]"

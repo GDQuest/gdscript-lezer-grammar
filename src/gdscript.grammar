@@ -1,0 +1,513 @@
+@detectDelim
+@context trackIndent from "./tokens.js"
+
+@precedence {
+    prefix,
+
+    primary,
+    subscript @left,
+    attribute @left,
+    call @left,
+    await @right,
+    typeTest @left,
+    power @left,
+    bitNot @left,
+    sign,
+    factor @left,
+    additionSubtraction @left,
+    bitShift @left,
+    bitAnd @left,
+    bitXor @left,
+    bitOr @left,
+    comparison @left,
+    contentTest @left,
+    logicNot @left,
+    logicAnd @left,
+    logicOr @left,
+    ternary @right,
+    cast @left,
+    assignment @left,
+    none @left,
+
+    // Grammar
+    cut @cut,
+    else @right
+}
+
+@top Script {
+    statement*
+}
+
+@skip { Comment | space | newlineBracketed | blankLine }
+
+@skip {} {
+    blankLine {
+        blankLineStart space? Comment? newline
+    }
+
+    String {
+        shortString
+        // '"' (stringContentDouble | Escape)* ('"' | newline) |
+        // "'" (stringContentSingle | Escape)* ("'" | newline)
+    }
+}
+
+// Statements
+statement[@isGroup=Statement] { SimpleStatement | CompoundStatement }
+
+SimpleStatement {
+    SmallStatement (Newline | Eof) |
+    StatementGroup { SmallStatement (";" SmallStatement?)+ (Newline | Eof) }
+}
+
+SmallStatement {
+    StandaloneAnnotationNode { !cut AnnotationNode } |
+    AssertNode |
+    ClassNameStatement |
+    ExtendsStatement |
+    SignalStatement |
+    PassStatement |
+    ReturnNode |
+    expressionNode
+}
+
+CompoundStatement {
+    ClassNode |
+    FunctionNode |
+    IfNode |
+    ForNode |
+    MatchNode |
+    WhileNode
+}
+
+SignalStatement { kw<"signal"> Identifier !call CallParamsExpressionNode? }
+ClassNameStatement { kw<"class_name"> Identifier }
+ExtendsStatement { kw<"extends"> Identifier }
+PassStatement { kw<"pass"> }
+
+// Nodes
+
+node[@isGroup=Node] {
+    AnnotationNode |
+    AssertNode |
+    assignableNode |
+    ClassNode |
+    expressionNode |
+    ForNode |
+    FunctionNode |
+    IfNode |
+    MatchNode |
+    MatchBranchNode |
+    PatternNode |
+    ReturnNode |
+    SuiteNode |
+    WhileNode
+}
+
+AssertNode {
+    !cut kw<"assert"> !call CallParamsExpressionNode
+}
+
+ClassNode {
+    !cut AnnotationNode*
+    kw<"class"> Identifier ExtendsStatement?
+    Body
+}
+
+FunctionNode {
+    !cut AnnotationNode*
+    !cut kw<"func"> Identifier functionSignature Body
+}
+
+SuiteNode { Indent statement+ (Dedent | eof) }
+
+assignableNode[@isGroup=AssignableNode] {
+    VariableNode |
+    ConstantNode |
+    ParameterNode
+}
+
+VariableNode {
+    !cut AnnotationNode*
+    kw<"var"> Identifier TypeCast?
+}
+
+ConstantNode {
+    !cut AnnotationNode*
+    kw<"const"> Identifier TypeCast?
+}
+
+ParameterNode {
+    Identifier ~identifierAmbiguity TypeCast?
+}
+
+functionSignature {
+    CallParamsParameterNode FunctionReturnType?
+}
+
+Body {
+    ":" (
+        SuiteNodeBody |
+        ExpressionNodeBody
+    )
+}
+
+SuiteNodeBody {
+    Newline SuiteNode
+}
+
+ExpressionNodeBody {
+    statement
+}
+
+AnnotationNode {
+    "@" Identifier !call CallParamsLiteralExpressionNode?
+}
+
+IfNode {
+    IfClause
+    (!else ElifClause)*
+    (!else ElseClause)?
+}
+
+IfClause {
+    kw<"if"> expressionNode
+    Body
+}
+
+ElifClause {
+    kw<"elif"> expressionNode
+    Body
+}
+
+ElseClause {
+    kw<"else">
+    Body
+}
+
+ForNode {
+    kw<"for"> Identifier kw<"in"> expressionNode
+    Body
+}
+
+MatchNode {
+    kw<"match"> Identifier ":" Newline
+    Indent MatchBranchNode+ (Dedent | Eof)
+}
+
+MatchBranchNode {
+    PatternNode Body
+}
+
+PatternNode {
+    VarPatternNode { kw<"var"> Identifier } |
+    IdentifierPatternNode { Identifier } |
+    LiteralPatternNode { LiteralExpressionNode } |
+    WildcardPatternNode { "_" }
+}
+
+ReturnNode {
+    kw<"return"> expressionNode
+}
+
+WhileNode {
+    kw<"while"> expressionNode
+    Body
+}
+
+Type { Identifier }
+
+TypeCast {
+    ":" Type
+}
+
+FunctionReturnType {
+    "->" Type
+}
+
+expressionNode[@isGroup=ExpressionNode] {
+    ArrayExpressionNode |
+    AssignmentExpressionNode<expressionNode | assignableNode | Identifier> |
+    AwaitExpressionNode |
+    BinaryOperatorExpressionNode |
+    CallExpressionNode |
+    CastExpressionNode |
+    DictionaryExpressionNode |
+    GetNodeExpressionNode |
+    GroupedExpressionNode |
+    IdentifierExpressionNode |
+    LambdaExpressionNode |
+    LiteralExpressionNode |
+    PreloadExpressionNode |
+    SelfExpressionNode { SelfToken } |
+    SubscriptExpressionNode |
+    TernaryOperatorExpressionNode |
+    TypeTestExpressionNode |
+    UnaryOperatorNode
+}
+
+ArrayExpressionNode {
+    (SubscriptExpressionNode !subscript)? "[" commaSep<expressionNode>? "]"
+}
+
+AssignmentExpressionNode<assignee> {
+    assignee !assignment (assignmentAndOp | equal) ~assignAmbiguity expressionNode
+}
+
+AwaitExpressionNode {
+    // await
+    kw<"await"> !await expressionNode
+}
+
+BinaryOperatorExpressionNode {
+    // **
+    expressionNode !power ArithOp<"**"> expressionNode |
+    // / % *
+    expressionNode !factor ArithOp<"/" | "%" | "*"> expressionNode |
+    // + -
+    expressionNode !additionSubtraction ArithOp<"+" | "-"> expressionNode |
+    // << >>
+    expressionNode !bitShift BitOp<"<<" | ">>"> expressionNode |
+    // == != < <= > >=
+    expressionNode !comparison CompareOp<"==" | "!=" | "<" | "<=" | ">" | ">="> expressionNode |
+    // |
+    expressionNode !bitOr BitOp<"|"> expressionNode |
+    // ^
+    expressionNode !bitXor BitOp<"^"> expressionNode |
+    // &
+    expressionNode !bitAnd BitOp<"&"> expressionNode |
+    // &&
+    expressionNode !logicAnd (AndOp | LogicOp<"&&">) expressionNode |
+    // ||
+    expressionNode !logicOr (OrOp | LogicOp<"||">) expressionNode |
+    // in
+    expressionNode !contentTest (NotOp? kw<"in">) expressionNode
+}
+
+CallExpressionNode {
+    (Identifier | SubscriptExpressionNode) !call CallParamsExpressionNode
+}
+
+CallParamsExpressionNode {
+    "(" (commaSep<expressionNode>)? ")"
+}
+
+CallParamsParameterNode {
+    "(" (commaSep<ParameterNode | AssignmentExpressionNode<ParameterNode>>)? ")"
+}
+
+CallParamsLiteralExpressionNode {
+    "(" (commaSep<LiteralExpressionNode>)? ")"
+}
+
+CastExpressionNode {
+    // as
+    expressionNode !cast kw<"as"> Type
+}
+
+DictionaryExpressionNode {
+    (SubscriptExpressionNode !subscript)? "{" commaSep<DictionaryEntry> "}"
+}
+
+DictionaryEntry {
+    expressionNode (":" | equal) expressionNode
+}
+
+GetNodeExpressionNode {
+    ("$" | "%") Identifier ("/" Identifier)*
+}
+
+GroupedExpressionNode {
+    "(" expressionNode ")"
+}
+
+IdentifierExpressionNode {
+    Identifier ~identifierAmbiguity
+}
+
+UnaryOperatorNode {
+    !prefix (ArithOp<"+" | "-" | "!"> | NotOp) expressionNode
+}
+
+LambdaExpressionNode {
+    kw<"func"> functionSignature
+    Body
+}
+
+LiteralExpressionNode {
+    integer |
+    float |
+    True |
+    False |
+    Null |
+    BuiltinConstants |
+    String
+}
+
+PreloadExpressionNode {
+    !cut kw<"preload"> !call CallParamsExpressionNode
+}
+
+SubscriptExpressionNode {
+    (VariableName | GetNodeExpressionNode) !attribute ("." VariableName)+
+}
+
+TernaryOperatorExpressionNode {
+    // ? ... : ...
+    expressionNode !ternary TernaryOp<"?"> expressionNode TernaryOp<":"> expressionNode
+}
+
+TypeTestExpressionNode {
+    expressionNode !contentTest kw<"is"> ClassName
+}
+
+BuiltinConstants {
+    kw<"PI"> |
+    kw<"TAU"> |
+    kw<"INF"> |
+    kw<"NaN">
+}
+
+VariableName { Identifier }
+ClassName { Identifier }
+
+// Indent
+
+lineEnd { Newline | Eof }
+
+//
+kw<term> { @specialize[@name={term}]<Identifier, term> }
+commaSep<expr> { expr ("," expr)* ","? }
+
+//
+@external tokens indentation from "./tokens.js" {
+    indent,
+    dedent
+}
+
+Indent { indent }
+Dedent { dedent }
+Newline { newline }
+Eof { eof }
+
+@external tokens newlines from "./tokens.js" {
+    newline,
+    blankLineStart,
+    newlineBracketed,
+    eof
+}
+
+@tokens {
+    builtinConstantToken {
+        constPi |
+        constTau |
+        constInf |
+        constNaN
+    }
+    SelfToken { "self" }
+    @precedence {
+        float,
+        integer,
+        True,
+        False,
+        Null,
+        shortString,
+        BuiltinConstantToken,
+        SelfToken,
+        Identifier
+    }
+
+    // To replace with the real identifier
+    Identifier { (@asciiLetter | "_") (@asciiLetter | $[0-9_])* }
+    @precedence {
+        Identifier,
+        "_"
+    }
+
+    // Values
+    True { "true" }
+    False { "false" }
+    Null { "null" }
+
+    Number {
+        integer |
+        float
+    }
+
+    constPi[@export=PI] { "PI" }
+    constTau[@export=TAU] { "TAU" }
+    constInf[@export=INF] { "INF" }
+    constNaN[@export=NaN] { "NaN" }
+
+    // Numbers
+    decimal { @digit }
+    decimalWithUnderscores { decimal ("_"? decimal)* }
+    hexadecimal { @digit | $[a-fA-F] }
+    hexadecimalWithUnderscores { hexadecimal ("_"? hexadecimal)* }
+    binary { $[01] }
+    binaryWithUnderscores { binary ("_"? binary)* }
+
+    // Integers
+    integer {
+        "0" $[xX] hexadecimalWithUnderscores+ |
+        decimalWithUnderscores |
+        "0" $[bB] binaryWithUnderscores+
+    }
+
+    // Floats
+    float {
+        decimalWithUnderscores? "." decimalWithUnderscores ($[eE] $[+-] decimalWithUnderscores)? |
+        decimalWithUnderscores $[eE] $[+-] decimalWithUnderscores
+    }
+
+    @precedence {
+        float,
+        "."
+    }
+
+    Comment { "#" ![\n\r]* }
+    // eof { @eof }
+    space { $[ \t]+ }
+    // newline { "\n" }
+
+    ArithOp<expr> { expr }
+    LogicOp<expr> { expr }
+    BitOp<expr> { expr }
+    CompareOp<expr> { expr }
+    UpdateOp<expr> { expr }
+    TernaryOp<expr> { expr }
+    AssignOp<expr> { expr }
+
+    equal { "=" }
+
+    assignmentAndOp {
+        ($[+\-/%^] | "*" "*"? | "|" "|"? | "&" "&"? | "<<" | ">>" ">"? | "??") equal
+    }
+
+    @precedence {
+        "*", "/", "?", ":",
+        ArithOp, TernaryOp
+    }
+
+    AndOp { LogicOp<"and"> }
+    OrOp { LogicOp<"or"> }
+    NotOp { ArithOp<"not"> }
+    @precedence { AndOp, OrOp, NotOp, Identifier }
+
+    stringContent { ![\\\n\r] }
+    shortString { "'" (stringContent | Escape)* "'" | '"' (stringContent | Escape)* '"' }
+
+    stringContentSingle { ![\\\n']+ }
+    stringContentDouble { ![\\\n"]+ }
+    Escape {
+        "\\" ("x" hexadecimal hexadecimal | "u" ("{" hexadecimal+ "}" | hexadecimal hexadecimal hexadecimal hexadecimal) | ![xu])
+    }
+
+    "("[@export=ParenL] ")"
+    "["[@export=BracketL] "]"
+    "{"[@export=BraceL] "}"
+
+    "." "," ";" ":" "@" "*" "**"
+}
+
+@external propSource gdscriptHighlighting from "./highlight"

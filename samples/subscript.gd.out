@@ -1,0 +1,17 @@
+Script [1:0..2:0]
+ └─ CompoundStatement [1:0..2:0]
+     └─ CallExpressionNode [1:0..1:36]
+         ├─ SubscriptExpressionNode [1:0..1:21]
+         │   ├─ VariableName [1:0..1:6]
+         │   │   └─ Identifier [1:0..1:6]: "parent"
+         │   ├─ . [1:6..1:7]: "."
+         │   ├─ VariableName [1:7..1:12]
+         │   │   └─ Identifier [1:7..1:12]: "child"
+         │   ├─ . [1:12..1:13]: "."
+         │   └─ VariableName [1:13..1:21]
+         │       └─ Identifier [1:13..1:21]: "get_node"
+         └─ CallParams [1:21..1:36]
+             ├─ ( [1:21..1:22]: "("
+             ├─ LiteralExpressionNode [1:22..1:35]
+             │   └─ String [1:22..1:35]: "\"hello/world\""
+             └─ ) [1:35..1:36]: ")"
